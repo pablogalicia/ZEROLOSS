@@ -45,12 +45,12 @@ body
 	font-size: 14px;
 	font-weight: 400;
 	background: #FFFFFF;
-	color: #a5a5a5;
+	/*color: #a5a5a5;*/
 }
 div
 {
 	display: block;
-	position: relative;
+	/*position: relative;*/
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -1695,4 +1695,20 @@ section
 	vertical-align: middle;
 	font-size: 20px;
 	color: #00877C;
+}
+textarea {
+    resize: none;
+}
+.form-control {
+    border: 1px solid #404040 !important;
+}
+.paros_title {
+    font-size: 70px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+    background: #00877C
+}
+form#form {
+    margin-top: -45px;
 }
