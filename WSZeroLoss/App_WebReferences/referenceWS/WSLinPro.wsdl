@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ProcesoParos">
+        <s:complexType />
+      </s:element>
+      <s:element name="ProcesoParosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcesoParosResult" type="tns:ArrayOfProcesoParos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProcesoParos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProcesoParos" nillable="true" type="tns:ProcesoParos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcesoParos">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idProcesoParo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombreProceso" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="catalogos">
+        <s:complexType />
+      </s:element>
+      <s:element name="catalogosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="catalogosResult" type="tns:ArrayOfCategoria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCategoria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Categoria" nillable="true" type="tns:Categoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Categoria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idCategoria" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombreCategoria" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="estatus" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="subCategorias">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idProceso" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subCategoriasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subCategoriasResult" type="tns:ArrayOfSubCategorias" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSubCategorias">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="subCategorias" nillable="true" type="tns:subCategorias" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="subCategorias">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idCategoria" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionSubcategoria" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="idSubcategoriaxCategoria" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idMotivoParo" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="motivoParo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idMotivo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="motivoParoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="motivoParoResult" type="tns:ArrayOfMotivosParo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMotivosParo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="motivosParo" nillable="true" type="tns:motivosParo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="motivosParo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idMotivoParo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionParo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="estatus" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="linea">
+        <s:complexType />
+      </s:element>
+      <s:element name="lineaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lineaResult" type="tns:ArrayOfLinea" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLinea">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="linea" nillable="true" type="tns:linea" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="linea">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idLinea" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombreLinea" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="activo" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="idEstatusLinea" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="allParoLineas">
+        <s:complexType />
+      </s:element>
+      <s:element name="allParoLineasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="allParoLineasResult" type="tns:ArrayOfParosLineas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfParosLineas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ParosLineas" nillable="true" type="tns:ParosLineas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ParosLineas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idParoLinea" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idLiena" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="fechaHoraInicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fechaHoraFin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fechaHoraAtencion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="idMotivoParo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="motivoParo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionDetalleParo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="tiempoTransacurridoParo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="tiempoAtencionParo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idPersonal" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="personal" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="idNivelEscalamiento" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombreEstatus" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="insertarParoLinea">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idLinea" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="fechaHoraInicio" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idMotivoParo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idPersonal" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarParoLineaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertarParoLineaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizaEstatusLinea">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idLinea" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idEstatusLinea" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizaEstatusLineaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizaEstatusLineaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizaEstatusParoLinea">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idParoLinea" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizaEstatusParoLineaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizaEstatusParoLineaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizaDescripcionParoLinea">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idParoLinea" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizaDescripcionParoLineaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizaDescripcionParoLineaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfProcesoParos" nillable="true" type="tns:ArrayOfProcesoParos" />
+      <s:element name="ArrayOfCategoria" nillable="true" type="tns:ArrayOfCategoria" />
+      <s:element name="ArrayOfSubCategorias" nillable="true" type="tns:ArrayOfSubCategorias" />
+      <s:element name="ArrayOfMotivosParo" nillable="true" type="tns:ArrayOfMotivosParo" />
+      <s:element name="ArrayOfLinea" nillable="true" type="tns:ArrayOfLinea" />
+      <s:element name="ArrayOfParosLineas" nillable="true" type="tns:ArrayOfParosLineas" />
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ProcesoParosSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcesoParos" />
+  </wsdl:message>
+  <wsdl:message name="ProcesoParosSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcesoParosResponse" />
+  </wsdl:message>
+  <wsdl:message name="catalogosSoapIn">
+    <wsdl:part name="parameters" element="tns:catalogos" />
+  </wsdl:message>
+  <wsdl:message name="catalogosSoapOut">
+    <wsdl:part name="parameters" element="tns:catalogosResponse" />
+  </wsdl:message>
+  <wsdl:message name="subCategoriasSoapIn">
+    <wsdl:part name="parameters" element="tns:subCategorias" />
+  </wsdl:message>
+  <wsdl:message name="subCategoriasSoapOut">
+    <wsdl:part name="parameters" element="tns:subCategoriasResponse" />
+  </wsdl:message>
+  <wsdl:message name="motivoParoSoapIn">
+    <wsdl:part name="parameters" element="tns:motivoParo" />
+  </wsdl:message>
+  <wsdl:message name="motivoParoSoapOut">
+    <wsdl:part name="parameters" element="tns:motivoParoResponse" />
+  </wsdl:message>
+  <wsdl:message name="lineaSoapIn">
+    <wsdl:part name="parameters" element="tns:linea" />
+  </wsdl:message>
+  <wsdl:message name="lineaSoapOut">
+    <wsdl:part name="parameters" element="tns:lineaResponse" />
+  </wsdl:message>
+  <wsdl:message name="allParoLineasSoapIn">
+    <wsdl:part name="parameters" element="tns:allParoLineas" />
+  </wsdl:message>
+  <wsdl:message name="allParoLineasSoapOut">
+    <wsdl:part name="parameters" element="tns:allParoLineasResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarParoLineaSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarParoLinea" />
+  </wsdl:message>
+  <wsdl:message name="insertarParoLineaSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarParoLineaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaEstatusLineaSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizaEstatusLinea" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaEstatusLineaSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizaEstatusLineaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaEstatusParoLineaSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizaEstatusParoLinea" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaEstatusParoLineaSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizaEstatusParoLineaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaDescripcionParoLineaSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizaDescripcionParoLinea" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaDescripcionParoLineaSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizaDescripcionParoLineaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcesoParosHttpGetIn" />
+  <wsdl:message name="ProcesoParosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProcesoParos" />
+  </wsdl:message>
+  <wsdl:message name="catalogosHttpGetIn" />
+  <wsdl:message name="catalogosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCategoria" />
+  </wsdl:message>
+  <wsdl:message name="subCategoriasHttpGetIn">
+    <wsdl:part name="idProceso" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="subCategoriasHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSubCategorias" />
+  </wsdl:message>
+  <wsdl:message name="motivoParoHttpGetIn">
+    <wsdl:part name="idMotivo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="motivoParoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMotivosParo" />
+  </wsdl:message>
+  <wsdl:message name="lineaHttpGetIn" />
+  <wsdl:message name="lineaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLinea" />
+  </wsdl:message>
+  <wsdl:message name="allParoLineasHttpGetIn" />
+  <wsdl:message name="allParoLineasHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfParosLineas" />
+  </wsdl:message>
+  <wsdl:message name="insertarParoLineaHttpGetIn">
+    <wsdl:part name="idLinea" type="s:string" />
+    <wsdl:part name="fechaHoraInicio" type="s:string" />
+    <wsdl:part name="idMotivoParo" type="s:string" />
+    <wsdl:part name="idPersonal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="insertarParoLineaHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaEstatusLineaHttpGetIn">
+    <wsdl:part name="idLinea" type="s:string" />
+    <wsdl:part name="idEstatusLinea" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaEstatusLineaHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaEstatusParoLineaHttpGetIn">
+    <wsdl:part name="idParoLinea" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaEstatusParoLineaHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaDescripcionParoLineaHttpGetIn">
+    <wsdl:part name="idParoLinea" type="s:string" />
+    <wsdl:part name="descripcion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaDescripcionParoLineaHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ProcesoParosHttpPostIn" />
+  <wsdl:message name="ProcesoParosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProcesoParos" />
+  </wsdl:message>
+  <wsdl:message name="catalogosHttpPostIn" />
+  <wsdl:message name="catalogosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCategoria" />
+  </wsdl:message>
+  <wsdl:message name="subCategoriasHttpPostIn">
+    <wsdl:part name="idProceso" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="subCategoriasHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSubCategorias" />
+  </wsdl:message>
+  <wsdl:message name="motivoParoHttpPostIn">
+    <wsdl:part name="idMotivo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="motivoParoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMotivosParo" />
+  </wsdl:message>
+  <wsdl:message name="lineaHttpPostIn" />
+  <wsdl:message name="lineaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLinea" />
+  </wsdl:message>
+  <wsdl:message name="allParoLineasHttpPostIn" />
+  <wsdl:message name="allParoLineasHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfParosLineas" />
+  </wsdl:message>
+  <wsdl:message name="insertarParoLineaHttpPostIn">
+    <wsdl:part name="idLinea" type="s:string" />
+    <wsdl:part name="fechaHoraInicio" type="s:string" />
+    <wsdl:part name="idMotivoParo" type="s:string" />
+    <wsdl:part name="idPersonal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="insertarParoLineaHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaEstatusLineaHttpPostIn">
+    <wsdl:part name="idLinea" type="s:string" />
+    <wsdl:part name="idEstatusLinea" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaEstatusLineaHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaEstatusParoLineaHttpPostIn">
+    <wsdl:part name="idParoLinea" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaEstatusParoLineaHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaDescripcionParoLineaHttpPostIn">
+    <wsdl:part name="idParoLinea" type="s:string" />
+    <wsdl:part name="descripcion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaDescripcionParoLineaHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:portType name="WSLinProClassSoap">
+    <wsdl:operation name="ProcesoParos">
+      <wsdl:input message="tns:ProcesoParosSoapIn" />
+      <wsdl:output message="tns:ProcesoParosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="catalogos">
+      <wsdl:input message="tns:catalogosSoapIn" />
+      <wsdl:output message="tns:catalogosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="subCategorias">
+      <wsdl:input message="tns:subCategoriasSoapIn" />
+      <wsdl:output message="tns:subCategoriasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="motivoParo">
+      <wsdl:input message="tns:motivoParoSoapIn" />
+      <wsdl:output message="tns:motivoParoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="linea">
+      <wsdl:input message="tns:lineaSoapIn" />
+      <wsdl:output message="tns:lineaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="allParoLineas">
+      <wsdl:input message="tns:allParoLineasSoapIn" />
+      <wsdl:output message="tns:allParoLineasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarParoLinea">
+      <wsdl:input message="tns:insertarParoLineaSoapIn" />
+      <wsdl:output message="tns:insertarParoLineaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEstatusLinea">
+      <wsdl:input message="tns:ActualizaEstatusLineaSoapIn" />
+      <wsdl:output message="tns:ActualizaEstatusLineaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEstatusParoLinea">
+      <wsdl:input message="tns:ActualizaEstatusParoLineaSoapIn" />
+      <wsdl:output message="tns:ActualizaEstatusParoLineaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaDescripcionParoLinea">
+      <wsdl:input message="tns:ActualizaDescripcionParoLineaSoapIn" />
+      <wsdl:output message="tns:ActualizaDescripcionParoLineaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSLinProClassHttpGet">
+    <wsdl:operation name="ProcesoParos">
+      <wsdl:input message="tns:ProcesoParosHttpGetIn" />
+      <wsdl:output message="tns:ProcesoParosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="catalogos">
+      <wsdl:input message="tns:catalogosHttpGetIn" />
+      <wsdl:output message="tns:catalogosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="subCategorias">
+      <wsdl:input message="tns:subCategoriasHttpGetIn" />
+      <wsdl:output message="tns:subCategoriasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="motivoParo">
+      <wsdl:input message="tns:motivoParoHttpGetIn" />
+      <wsdl:output message="tns:motivoParoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="linea">
+      <wsdl:input message="tns:lineaHttpGetIn" />
+      <wsdl:output message="tns:lineaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="allParoLineas">
+      <wsdl:input message="tns:allParoLineasHttpGetIn" />
+      <wsdl:output message="tns:allParoLineasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarParoLinea">
+      <wsdl:input message="tns:insertarParoLineaHttpGetIn" />
+      <wsdl:output message="tns:insertarParoLineaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEstatusLinea">
+      <wsdl:input message="tns:ActualizaEstatusLineaHttpGetIn" />
+      <wsdl:output message="tns:ActualizaEstatusLineaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEstatusParoLinea">
+      <wsdl:input message="tns:ActualizaEstatusParoLineaHttpGetIn" />
+      <wsdl:output message="tns:ActualizaEstatusParoLineaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaDescripcionParoLinea">
+      <wsdl:input message="tns:ActualizaDescripcionParoLineaHttpGetIn" />
+      <wsdl:output message="tns:ActualizaDescripcionParoLineaHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSLinProClassHttpPost">
+    <wsdl:operation name="ProcesoParos">
+      <wsdl:input message="tns:ProcesoParosHttpPostIn" />
+      <wsdl:output message="tns:ProcesoParosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="catalogos">
+      <wsdl:input message="tns:catalogosHttpPostIn" />
+      <wsdl:output message="tns:catalogosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="subCategorias">
+      <wsdl:input message="tns:subCategoriasHttpPostIn" />
+      <wsdl:output message="tns:subCategoriasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="motivoParo">
+      <wsdl:input message="tns:motivoParoHttpPostIn" />
+      <wsdl:output message="tns:motivoParoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="linea">
+      <wsdl:input message="tns:lineaHttpPostIn" />
+      <wsdl:output message="tns:lineaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="allParoLineas">
+      <wsdl:input message="tns:allParoLineasHttpPostIn" />
+      <wsdl:output message="tns:allParoLineasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarParoLinea">
+      <wsdl:input message="tns:insertarParoLineaHttpPostIn" />
+      <wsdl:output message="tns:insertarParoLineaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEstatusLinea">
+      <wsdl:input message="tns:ActualizaEstatusLineaHttpPostIn" />
+      <wsdl:output message="tns:ActualizaEstatusLineaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEstatusParoLinea">
+      <wsdl:input message="tns:ActualizaEstatusParoLineaHttpPostIn" />
+      <wsdl:output message="tns:ActualizaEstatusParoLineaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaDescripcionParoLinea">
+      <wsdl:input message="tns:ActualizaDescripcionParoLineaHttpPostIn" />
+      <wsdl:output message="tns:ActualizaDescripcionParoLineaHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSLinProClassSoap" type="tns:WSLinProClassSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcesoParos">
+      <soap:operation soapAction="http://tempuri.org/ProcesoParos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="catalogos">
+      <soap:operation soapAction="http://tempuri.org/catalogos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subCategorias">
+      <soap:operation soapAction="http://tempuri.org/subCategorias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="motivoParo">
+      <soap:operation soapAction="http://tempuri.org/motivoParo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="linea">
+      <soap:operation soapAction="http://tempuri.org/linea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="allParoLineas">
+      <soap:operation soapAction="http://tempuri.org/allParoLineas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarParoLinea">
+      <soap:operation soapAction="http://tempuri.org/insertarParoLinea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEstatusLinea">
+      <soap:operation soapAction="http://tempuri.org/ActualizaEstatusLinea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEstatusParoLinea">
+      <soap:operation soapAction="http://tempuri.org/ActualizaEstatusParoLinea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaDescripcionParoLinea">
+      <soap:operation soapAction="http://tempuri.org/ActualizaDescripcionParoLinea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSLinProClassSoap12" type="tns:WSLinProClassSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcesoParos">
+      <soap12:operation soapAction="http://tempuri.org/ProcesoParos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="catalogos">
+      <soap12:operation soapAction="http://tempuri.org/catalogos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subCategorias">
+      <soap12:operation soapAction="http://tempuri.org/subCategorias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="motivoParo">
+      <soap12:operation soapAction="http://tempuri.org/motivoParo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="linea">
+      <soap12:operation soapAction="http://tempuri.org/linea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="allParoLineas">
+      <soap12:operation soapAction="http://tempuri.org/allParoLineas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarParoLinea">
+      <soap12:operation soapAction="http://tempuri.org/insertarParoLinea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEstatusLinea">
+      <soap12:operation soapAction="http://tempuri.org/ActualizaEstatusLinea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEstatusParoLinea">
+      <soap12:operation soapAction="http://tempuri.org/ActualizaEstatusParoLinea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaDescripcionParoLinea">
+      <soap12:operation soapAction="http://tempuri.org/ActualizaDescripcionParoLinea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSLinProClassHttpGet" type="tns:WSLinProClassHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ProcesoParos">
+      <http:operation location="/ProcesoParos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="catalogos">
+      <http:operation location="/catalogos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subCategorias">
+      <http:operation location="/subCategorias" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="motivoParo">
+      <http:operation location="/motivoParo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="linea">
+      <http:operation location="/linea" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="allParoLineas">
+      <http:operation location="/allParoLineas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarParoLinea">
+      <http:operation location="/insertarParoLinea" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEstatusLinea">
+      <http:operation location="/ActualizaEstatusLinea" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEstatusParoLinea">
+      <http:operation location="/ActualizaEstatusParoLinea" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaDescripcionParoLinea">
+      <http:operation location="/ActualizaDescripcionParoLinea" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSLinProClassHttpPost" type="tns:WSLinProClassHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ProcesoParos">
+      <http:operation location="/ProcesoParos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="catalogos">
+      <http:operation location="/catalogos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subCategorias">
+      <http:operation location="/subCategorias" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="motivoParo">
+      <http:operation location="/motivoParo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="linea">
+      <http:operation location="/linea" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="allParoLineas">
+      <http:operation location="/allParoLineas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarParoLinea">
+      <http:operation location="/insertarParoLinea" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEstatusLinea">
+      <http:operation location="/ActualizaEstatusLinea" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEstatusParoLinea">
+      <http:operation location="/ActualizaEstatusParoLinea" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaDescripcionParoLinea">
+      <http:operation location="/ActualizaDescripcionParoLinea" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSLinProClass">
+    <wsdl:port name="WSLinProClassSoap" binding="tns:WSLinProClassSoap">
+      <soap:address location="http://localhost:9685/WSLinPro.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSLinProClassSoap12" binding="tns:WSLinProClassSoap12">
+      <soap12:address location="http://localhost:9685/WSLinPro.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSLinProClassHttpGet" binding="tns:WSLinProClassHttpGet">
+      <http:address location="http://localhost:9685/WSLinPro.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSLinProClassHttpPost" binding="tns:WSLinProClassHttpPost">
+      <http:address location="http://localhost:9685/WSLinPro.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

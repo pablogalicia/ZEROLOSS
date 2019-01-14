@@ -8,9 +8,17 @@
     <title>ANDON | ZEROLOSS</title>
 
 <link rel="stylesheet" href="styles/jquery.datetimepicker.css">
+<link href="plugins/sweetAlert/css/jquery.gritter.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="plugins/datatables/jquery.dataTables.min.css">
 
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery.datetimepicker.js"></script>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.datetimepicker.js"></script>
+<script type="text/javascript" src="plugins/sweetAlert/sweetalert.min.js"></script>
+<script type="text/javascript" src="plugins/sweetAlert/jquery.gritter.js"></script>
+<script type="text/javascript" src="plugins/sweetAlert/ui-modal-notification.demo.min.js"></script>
+
+
 
 <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
 <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -19,6 +27,10 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+
+
+
+
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -144,5 +156,11 @@
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="js/custom.js"></script>
+    
+<!-- DataTables -->
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+
+<script src="js/moment.js"></script>
+
 </body>
 </html>

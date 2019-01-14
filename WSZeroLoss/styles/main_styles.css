@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -138,10 +138,7 @@ h6::selection
 {
 	
 }
-.form-control
-{
-	color: #db5246;
-}
+
 section
 {
 	display: block;
@@ -817,7 +814,7 @@ section
 .home_container
 {
 	position: absolute;
-	top: 38%;
+	top: 28%;
 	left: 0;
 	width: 100%;
 }
