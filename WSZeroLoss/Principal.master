@@ -82,7 +82,6 @@
 											<ul class="d-flex flex-row align-items-center justify-content-start">
 												<li><a href="PitChart.aspx">Pit Chart</a></li>
 												<li><a href="#">Notificaciones</a></li>
-												<li><a href="#">OA</a></li>
 											</ul>
 										</div>
 										<div class="header_top_phone">
@@ -106,18 +105,17 @@
 											<nav class="main_nav">
 												<ul class="d-flex flex-row align-items-center justify-content-start">
 													<li class="active"><a href="index.aspx">Inicio</a></li>
-													<li><a href="about.html">Paros</a></li>
+													<li><a href="paros.aspx">Paros</a></li>
 													<li><a href="services.html">Reportes</a></li>
 													<li><a href="news.html">Conteo en línea</a></li>
 													
 												</ul>
 											</nav>
-											<div class="search_content d-flex flex-row align-items-center justify-content-end ml-auto">
-												<form action="#" id="search_container_form" class="search_container_form">
-													<input type="text" class="search_container_input" placeholder="Buscar" required="required">
-													<button class="search_container_button"><i class="fa fa-search" aria-hidden="true"></i></button>
-												</form>
-											</div>
+											<nav class="main_nav d-flex flex-row align-items-center justify-content-start ml-auto">
+												<ul class="d-flex flex-row align-items-center justify-content-end pull-right">
+													<li><a href="#">Calculo de OA de Linea:</a></li>
+												</ul>
+											</nav>
 										</div>
 									</div>
 								</div>

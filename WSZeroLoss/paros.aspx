@@ -5,7 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="home_container">
         <br /><br />
-        <div class="container"  id="paroProgramado">
+
+         <div class="container"  id="paroProgramado">
             <br /><br />
             <form id="form">
                 <center>
